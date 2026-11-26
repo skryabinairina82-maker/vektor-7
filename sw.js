@@ -1,6 +1,6 @@
 // Офлайн-кэш: после первого открытия тренажёр работает без интернета.
-const CACHE = 'v7-b685941c';
-const FILES = ['./', 'index.html', 'manifest.webmanifest', 'icon.svg', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png'];
+const CACHE = 'v7-510a4f07';
+const FILES = ["./","index.html","original.html","homework.html","classroom.html","teacher.html","manifest.webmanifest","icon.svg","icon-192.png","icon-512.png","apple-touch-icon.png"];
 self.addEventListener('install', (e) => { e.waitUntil(caches.open(CACHE).then((c) => c.addAll(FILES)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', (e) => {
   e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k.startsWith('v7-') && k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
